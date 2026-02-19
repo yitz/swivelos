@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refurbished Office Furniture for Sale | 50-80% Off | Swivel Office Solutions</title>
+  <meta name="description" content="Browse refurbished Herman Miller, Steelcase, Knoll & Haworth office furniture. Chairs, desks, workstations & more at 50-80% off retail. Free nationwide shipping.">
+  <meta property="og:title" content="Shop Refurbished Office Furniture — Swivel Office Solutions">
+  <meta property="og:description" content="Herman Miller, Steelcase, Knoll & more at 50-80% off retail. Like-new quality, shipped nationwide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.swivelos.com/pages/shop.html">
+  <link rel="canonical" href="https://www.swivelos.com/pages/shop.html">
+  <meta name="robots" content="index, follow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0A1628',
+            'navy-mid': '#132240',
+            'navy-light': '#1C3155',
+            sage: '#7A9B6D',
+            'sage-light': '#95B585',
+            'sage-muted': '#C2D4BA',
+            gold: '#C8A44E',
+            'gold-light': '#DFC07A',
+            'gold-dark': '#A68735',
+            cream: '#FAF8F4',
+            'warm-white': '#FEFDFB',
+            'cool-gray': '#F0F1F3',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* Shop page specific — filter bar */
+    .filter-bar {
+      position: sticky;
+      top: 76px;
+      z-index: 40;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--navy);
+      color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    /* Product image placeholder gradient */
+    .product-image-placeholder {
+      width: 100%;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image-placeholder.placeholder-sage {
+      background: linear-gradient(145deg, #E8F0E4 0%, #D4E4CD 50%, #C2D4BA 100%);
+    }
+
+    .product-image-placeholder.placeholder-gold {
+      background: linear-gradient(145deg, #F5EDD8 0%, #EDE0C0 50%, #E2D3A8 100%);
+    }
+
+    .product-image-placeholder.placeholder-navy {
+      background: linear-gradient(145deg, #E2E4E8 0%, #D1D5DB 50%, #C4C8CF 100%);
+    }
+
+    .product-image-placeholder::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Sort select styling */
+    .sort-select {
+      padding: 10px 36px 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235A5F6B' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+
+    .sort-select:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 4px rgba(10,22,40,0.06);
+    }
+
+    /* Help callout card */
+    .help-callout {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 32px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .help-callout::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 0% 100%, rgba(122,155,109,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 40% at 100% 0%, rgba(200,164,78,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .help-callout * { position: relative; z-index: 1; }
+
+    /* No results message */
+    .no-results {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--text-muted);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.swivelos.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Shop Furniture", "item": "https://www.swivelos.com/pages/shop.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. TOP BAR
+       ============================================================ -->
+  <div class="top-bar hidden md:block">
+    <div class="container">
+      <div class="flex justify-between items-center">
+        <span>NY Metro Warehouse &bull; Shipping Nationwide</span>
+        <div class="flex items-center gap-6">
+          <a href="tel:7189091188" class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            718-909-1188
+          </a>
+          <a href="mailto:info@swivelos.com" class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            info@swivelos.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. HEADER / NAV
+       ============================================================ -->
+  <header id="main-header">
+    <div class="container">
+      <div class="nav-inner">
+
+        <!-- Logo -->
+        <a href="../index.html" class="logo" aria-label="Swivel Office Solutions Home">
+          <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="logo-grad-shop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7A9B6D"/>
+                <stop offset="100%" stop-color="#C8A44E"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 8C28 8 34 12 34 18C34 24 28 26 22 22C16 18 10 20 10 26C10 32 16 36 16 36" stroke="url(#logo-grad-shop)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M16 36C16 36 10 32 10 26C10 20 16 18 22 22C28 26 34 24 34 18C34 12 28 8 28 8" stroke="url(#logo-grad-shop)" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+          </svg>
+          <div class="logo-wordmark">
+            <span class="logo-wordmark-main">SWIVEL</span>
+            <span class="logo-wordmark-sub">OFFICE SOLUTIONS</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8" aria-label="Main navigation">
+          <a href="../index.html" class="nav-link">Home</a>
+
+          <div class="dropdown">
+            <a href="shop.html" class="nav-link active flex items-center gap-1">
+              Shop Furniture
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="shop-seating.html">
+                <span class="menu-icon">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                </span>
+                Seating
+              </a>
+              <a href="shop-desks.html">
+                <span class="menu-icon">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6"/></svg>
+                </span>
+                Desks &amp; Tables
+              </a>
+              <a href="shop-workstations.html">
+                <span class="menu-icon">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                </span>
+                Workstations
+              </a>
+              <a href="shop-conference.html">
+                <span class="menu-icon">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4"/></svg>
+                </span>
+                Conference &amp; Reception
+              </a>
+              <a href="shop-storage.html">
+                <span class="menu-icon">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                </span>
+                Storage &amp; Filing
+              </a>
+            </div>
+          </div>
+
+          <a href="liquidation.html" class="nav-link">Liquidation</a>
+          <a href="sustainability.html" class="nav-link">Sustainability</a>
+          <a href="brands.html" class="nav-link">Brands</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+
+        <!-- Nav CTA + Hamburger -->
+        <div class="flex items-center gap-4">
+          <a href="contact.html" class="nav-cta hidden lg:inline-flex">Get Free Quote</a>
+          <button id="menu-toggle" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
+  <!-- Mobile Slide-Out Menu -->
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <button class="mobile-dropdown-toggle">
+      Shop Furniture
+      <svg class="dropdown-arrow w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div class="hidden pl-4">
+      <a href="shop-seating.html" class="text-base !font-medium !border-b-0 py-2">Seating</a>
+      <a href="shop-desks.html" class="text-base !font-medium !border-b-0 py-2">Desks &amp; Tables</a>
+      <a href="shop-workstations.html" class="text-base !font-medium !border-b-0 py-2">Workstations</a>
+      <a href="shop-conference.html" class="text-base !font-medium !border-b-0 py-2">Conference &amp; Reception</a>
+      <a href="shop-storage.html" class="text-base !font-medium !border-b-0 py-2">Storage &amp; Filing</a>
+    </div>
+    <a href="liquidation.html">Liquidation</a>
+    <a href="sustainability.html">Sustainability</a>
+    <a href="brands.html">Brands</a>
+    <a href="about.html">About</a>
+    <div class="mt-6">
+      <a href="contact.html" class="btn btn-primary w-full text-center">Get Free Quote</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       3. PAGE HERO
+       ============================================================ -->
+  <section class="page-hero">
+    <div class="hero-grid"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm mb-8" aria-label="Breadcrumb" style="color: rgba(255,255,255,0.4);">
+        <a href="../index.html" style="color: var(--gold-light); transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--gold-light)'">Home</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <span style="color: rgba(255,255,255,0.7); font-weight: 600;">Shop Furniture</span>
+      </nav>
+
+      <div class="section-eyebrow" style="color: var(--gold-light);">
+        <span style="display: inline-block; width: 24px; height: 2px; background: var(--gold); border-radius: 1px;"></span>
+        Browse Our Inventory
+      </div>
+      <h1 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;">
+        Refurbished Office Furniture for Sale — Up to 80% Off
+      </h1>
+      <p style="font-size: clamp(1.05rem, 1.5vw, 1.15rem); color: rgba(255,255,255,0.55); max-width: 640px; line-height: 1.8;">
+        Herman Miller, Steelcase, Knoll, Haworth and more &mdash; all inspected, refurbished, and priced at <strong style="color: var(--gold-light);">50&ndash;80% off retail</strong>. Like-new quality, shipped nationwide.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. HELP CALLOUT BAR
+       ============================================================ -->
+  <section style="padding: 32px 0; background: var(--cream);">
+    <div class="container">
+      <div class="help-callout flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div style="width: 48px; height: 48px; background: rgba(200,164,78,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg class="w-5 h-5" style="color: var(--gold-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h2 style="font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 4px;">Need Help Finding the Right Furniture?</h2>
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.6;">Free consultations, no obligations. Our team helps you find exactly what fits your space and budget.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-3 flex-shrink-0">
+          <a href="contact.html" class="btn btn-primary btn-sm">
+            Get Free Quote
+            <svg class="btn-arrow w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="tel:7189091188" class="btn btn-sm" style="background: rgba(255,255,255,0.08); color: var(--white); border: 1.5px solid rgba(255,255,255,0.15);">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            718-909-1188
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. CATEGORY FILTER BAR
+       ============================================================ -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-3 overflow-x-auto pb-1 -mb-1" style="scrollbar-width: none;">
+          <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); white-space: nowrap;">Filter:</span>
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="seating">Seating</button>
+          <button class="filter-btn" data-category="desks">Desks</button>
+          <button class="filter-btn" data-category="workstations">Workstations</button>
+          <button class="filter-btn" data-category="conference">Conference</button>
+          <button class="filter-btn" data-category="storage">Storage</button>
+        </div>
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <label for="sort-select" style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); white-space: nowrap;">Sort by:</label>
+          <select id="sort-select" class="sort-select">
+            <option value="savings">Biggest Savings</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="brand">Brand A&ndash;Z</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       6. PRODUCT GRID
+       ============================================================ -->
+  <section style="padding: var(--space-section-sm) 0; background: var(--cream);">
+    <div class="container">
+
+      <!-- Results count -->
+      <div class="flex items-center justify-between mb-8 reveal">
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Showing <span id="product-count" style="font-weight: 700; color: var(--text-primary);">8</span> products</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">200+ items in stock</p>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- Product 1: Herman Miller Aeron -->
+        <div class="product-card reveal reveal-delay-1" data-category="seating" data-price="495" data-savings="65" data-brand="Herman Miller">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-sage">
+              <svg class="w-16 h-16" style="color: rgba(122,155,109,0.4);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <span class="badge-savings">Save 65%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Herman Miller</div>
+            <h3 class="product-name">Aeron Chair &mdash; Size B, Fully Loaded</h3>
+            <p class="product-desc">PostureFit SL, adjustable arms, graphite frame. The industry standard in ergonomic seating.</p>
+            <div class="price-row">
+              <span class="price-current">$495</span>
+              <span class="price-original">$1,395</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Steelcase Leap V2 -->
+        <div class="product-card reveal reveal-delay-2" data-category="seating" data-price="449" data-savings="63" data-brand="Steelcase">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-gold">
+              <svg class="w-16 h-16" style="color: rgba(200,164,78,0.4);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <span class="badge-savings">Save 63%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Steelcase</div>
+            <h3 class="product-name">Leap V2 &mdash; Adjustable Arms, Lumbar</h3>
+            <p class="product-desc">LiveBack technology, 4-way adjustable arms, upholstered seat. Top-tier ergonomics.</p>
+            <div class="price-row">
+              <span class="price-current">$449</span>
+              <span class="price-original">$1,199</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: Knoll Dividends Workstation -->
+        <div class="product-card reveal reveal-delay-3" data-category="workstations" data-price="890" data-savings="68" data-brand="Knoll">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-navy">
+              <svg class="w-16 h-16" style="color: rgba(10,22,40,0.2);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <span class="badge-savings">Save 68%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Knoll</div>
+            <h3 class="product-name">Dividends Workstation &mdash; 6x8 w/ Storage</h3>
+            <p class="product-desc">Complete workstation with overhead storage, filing pedestal, and cable management.</p>
+            <div class="price-row">
+              <span class="price-current">$890</span>
+              <span class="price-original">$2,800</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4: Steelcase Answer Cubicle -->
+        <div class="product-card reveal reveal-delay-4" data-category="workstations" data-price="1100" data-savings="66" data-brand="Steelcase">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-sage">
+              <svg class="w-16 h-16" style="color: rgba(122,155,109,0.4);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <span class="badge-savings">Save 66%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Steelcase</div>
+            <h3 class="product-name">Answer Cubicle System &mdash; 4-Pack, 6x6</h3>
+            <p class="product-desc">Modular panel system with integrated power, tackable fabric, and worksurfaces included.</p>
+            <div class="price-row">
+              <span class="price-current">$1,100</span>
+              <span class="price-original">$3,200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5: Herman Miller Sayl -->
+        <div class="product-card reveal reveal-delay-1" data-category="seating" data-price="295" data-savings="63" data-brand="Herman Miller">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-gold">
+              <svg class="w-16 h-16" style="color: rgba(200,164,78,0.4);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <span class="badge-savings">Save 63%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Herman Miller</div>
+            <h3 class="product-name">Sayl Chair &mdash; Black, Adjustable Arms</h3>
+            <p class="product-desc">Suspension back, tilt limiter, adjustable seat depth. Award-winning design by Yves Behar.</p>
+            <div class="price-row">
+              <span class="price-current">$295</span>
+              <span class="price-original">$795</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6: Haworth Compose Workstation -->
+        <div class="product-card reveal reveal-delay-2" data-category="workstations" data-price="780" data-savings="68" data-brand="Haworth">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-navy">
+              <svg class="w-16 h-16" style="color: rgba(10,22,40,0.2);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <span class="badge-savings">Save 68%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Haworth</div>
+            <h3 class="product-name">Compose Workstation &mdash; 6x8, Open Plan</h3>
+            <p class="product-desc">Open plan benching with privacy screens, shared storage, and integrated power rail.</p>
+            <div class="price-row">
+              <span class="price-current">$780</span>
+              <span class="price-original">$2,400</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7: Knoll Reff Conference Table -->
+        <div class="product-card reveal reveal-delay-3" data-category="conference" data-price="1650" data-savings="63" data-brand="Knoll">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-sage">
+              <svg class="w-16 h-16" style="color: rgba(122,155,109,0.4);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+            </div>
+            <span class="badge-savings">Save 63%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Knoll</div>
+            <h3 class="product-name">Reff Conference Table &mdash; 10ft, Walnut Veneer</h3>
+            <p class="product-desc">Boat-shaped conference surface with integrated cable trough. Seats 10 comfortably.</p>
+            <div class="price-row">
+              <span class="price-current">$1,650</span>
+              <span class="price-original">$4,500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8: HON 10500 L-Desk -->
+        <div class="product-card reveal reveal-delay-4" data-category="desks" data-price="395" data-savings="64" data-brand="HON">
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder placeholder-gold">
+              <svg class="w-16 h-16" style="color: rgba(200,164,78,0.4);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6M4 6l2-4h12l2 4"/></svg>
+            </div>
+            <span class="badge-savings">Save 64%</span>
+            <span class="badge-condition">Like New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">HON</div>
+            <h3 class="product-name">10500 Series L-Desk &mdash; Mahogany Finish</h3>
+            <p class="product-desc">Full L-shape with return, box/file pedestal, and cable grommets. Classic executive look.</p>
+            <div class="price-row">
+              <span class="price-current">$395</span>
+              <span class="price-original">$1,100</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Load More hint -->
+      <div class="text-center mt-12 reveal">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">Showing 8 of 200+ items in stock</p>
+        <a href="contact.html" class="btn btn-dark">
+          Request Full Inventory List
+          <svg class="btn-arrow w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. WHY REFURBISHED — 3 Column Value Props
+       ============================================================ -->
+  <section style="padding: var(--space-section) 0; background: var(--warm-white);">
+    <div class="container">
+
+      <div class="text-center mb-16 reveal">
+        <div class="section-eyebrow justify-center">Why Refurbished</div>
+        <h2 class="section-title">Why Buy Refurbished Office Furniture</h2>
+        <p class="section-desc mx-auto">Every piece we sell is sourced from top brands, meticulously restored, and backed by our quality guarantee. Here's why it makes sense.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Value 1 -->
+        <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-icon benefit-icon-gold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3>Like-New Quality</h3>
+          <p>Every piece inspected, cleaned, and restored to factory standards. We reject anything that doesn't meet our bar — so you never have to guess.</p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="benefit-card reveal reveal-delay-2">
+          <div class="benefit-icon benefit-icon-sage">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>Planet-Friendly</h3>
+          <p>Every refurbished piece stays out of a landfill. Over 2.4M lbs diverted and counting. Your purchase makes a measurable environmental impact.</p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-icon benefit-icon-navy">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3>Fast Nationwide Shipping</h3>
+          <p>Most orders ship from our NY metro warehouse within days. We deliver and install nationwide for businesses of every size.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. CTA BANNER
+       ============================================================ -->
+  <section style="padding: var(--space-section) 0; background: var(--cream);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; color: var(--white); margin-bottom: 16px;">Ready to Save on Premium Office Furniture?</h2>
+        <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; max-width: 640px; margin: 0 auto 40px; line-height: 1.75;">
+          Whether you need one chair or an entire floor &mdash; or you're liquidating a whole office &mdash; we'll give you a free evaluation within 24 hours. No pressure, no obligation, just straight answers.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            Get Free Quote
+            <svg class="btn-arrow w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="liquidation.html" class="btn btn-secondary btn-lg">
+            Sell Your Furniture
+          </a>
+          <a href="tel:7189091188" class="btn btn-secondary btn-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            718-909-1188
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="../index.html" class="logo" aria-label="Swivel Office Solutions Home">
+            <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="logo-grad-shop-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7A9B6D"/>
+                  <stop offset="100%" stop-color="#C8A44E"/>
+                </linearGradient>
+              </defs>
+              <path d="M28 8C28 8 34 12 34 18C34 24 28 26 22 22C16 18 10 20 10 26C10 32 16 36 16 36" stroke="url(#logo-grad-shop-footer)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M16 36C16 36 10 32 10 26C10 20 16 18 22 22C28 26 34 24 34 18C34 12 28 8 28 8" stroke="url(#logo-grad-shop-footer)" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+            </svg>
+            <div class="logo-wordmark">
+              <span class="logo-wordmark-main" style="color: var(--white);">SWIVEL</span>
+              <span class="logo-wordmark-sub" style="color: rgba(255,255,255,0.5);">OFFICE SOLUTIONS</span>
+            </div>
+          </a>
+          <p>Premium refurbished office furniture at 50-80% off retail. Family-owned in New York, shipping nationwide.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html">Shop All Furniture</a></li>
+            <li><a href="shop-seating.html">Seating</a></li>
+            <li><a href="shop-desks.html">Desks &amp; Tables</a></li>
+            <li><a href="shop-workstations.html">Workstations</a></li>
+            <li><a href="liquidation.html">Liquidation Services</a></li>
+            <li><a href="brands.html">Brands We Carry</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Get a Quote</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="tel:7189091188" class="flex items-center gap-3">
+                <svg class="w-4 h-4 flex-shrink-0" style="color: var(--gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                718-909-1188
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@swivelos.com" class="flex items-center gap-3">
+                <svg class="w-4 h-4 flex-shrink-0" style="color: var(--gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                info@swivelos.com
+              </a>
+            </li>
+            <li class="flex items-start gap-3" style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">
+              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color: var(--gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Woodmere, NY<br>Metro NYC Warehouse</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Swivel Office Solutions. All rights reserved.</p>
+        <div class="footer-eco">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"/></svg>
+          <span>Committed to Sustainable Office Solutions</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       10. BACK TO TOP
+       ============================================================ -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="../js/main.js"></script>
+  <script>
+    // ===== Category Filter + Sort Functionality =====
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const productGrid = document.getElementById('product-grid');
+      const productCards = Array.from(document.querySelectorAll('#product-grid .product-card'));
+      const productCount = document.getElementById('product-count');
+      const sortSelect = document.getElementById('sort-select');
+
+      let activeCategory = 'all';
+
+      // Filter
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          activeCategory = this.getAttribute('data-category');
+          applyFilterAndSort();
+        });
+      });
+
+      // Sort
+      if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+          applyFilterAndSort();
+        });
+      }
+
+      function applyFilterAndSort() {
+        let visible = productCards.filter(card => {
+          if (activeCategory === 'all') return true;
+          return card.getAttribute('data-category') === activeCategory;
+        });
+
+        let hidden = productCards.filter(card => !visible.includes(card));
+
+        // Sort visible cards
+        const sortVal = sortSelect ? sortSelect.value : 'savings';
+        visible.sort((a, b) => {
+          switch (sortVal) {
+            case 'price-low':
+              return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+            case 'price-high':
+              return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+            case 'brand':
+              return a.dataset.brand.localeCompare(b.dataset.brand);
+            case 'savings':
+            default:
+              return parseInt(b.dataset.savings) - parseInt(a.dataset.savings);
+          }
+        });
+
+        // Re-order DOM
+        visible.forEach(card => {
+          card.style.display = '';
+          productGrid.appendChild(card);
+        });
+
+        hidden.forEach(card => {
+          card.style.display = 'none';
+          productGrid.appendChild(card);
+        });
+
+        // Update count
+        if (productCount) {
+          productCount.textContent = visible.length;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
