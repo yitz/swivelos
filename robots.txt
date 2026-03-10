@@ -1,3 +1,6 @@
+# Swivel Office Solutions — robots.txt
+# https://www.swivelos.com
+
 User-agent: *
 Allow: /
 
